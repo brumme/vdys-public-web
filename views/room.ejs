@@ -1,0 +1,39 @@
+<!doctype html>
+<html class="no-js" lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <title><%= roomName %></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link href="//vjs.zencdn.net/7.0/video-js.min.css" rel="stylesheet">
+    <script>window.HELP_IMPROVE_VIDEOJS = false;</script>
+    <script src="//vjs.zencdn.net/7.0/video.min.js"></script>
+</head>
+<body id="body">
+  <!--[if lte IE 10]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+<!-- .container is main centered wrapper -->
+<div class="container">
+    <% if(roomName !== null){ %>
+    <h1 class="title"><%= roomName %></h1>
+    <% } %>
+    <video id="player" class="player video-js vjs-default-skin" controls>
+        <source src="https://s.vdys.org/live/<%= streamKeyOut %>.m3u8" type="application/x-mpegURL" />
+    </video>
+    <button id="lightswitch" class="lightswitch" onclick="flipSwitch()"><i class="far fa-lightbulb"></i></button>
+</div>
+<script>
+    var player = videojs('#player');
+</script>
+<script>
+    function flipSwitch() {
+        var element = document.getElementById("body");
+        element.classList.toggle("night");
+    }
+</script>
+</body>
+</html>

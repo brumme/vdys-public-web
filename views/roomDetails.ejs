@@ -1,0 +1,26 @@
+<!doctype html>
+<html class="no-js" lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <title>VDYS</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/custom.css">
+</head>
+<body id="body">
+  <!--[if lte IE 10]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+<!-- .container is main centered wrapper -->
+<div class="container">
+
+    <h1 class="title">Room Created</h1>
+    <h2 class="name">Room Name: "<%= roomName %>"</h2>
+    <h2 class="streamkey">Stream Key: <%= streamKeyIn %></h2>
+    <h2 class="streamkey">Room Destroyed at: <%= new Date(expirationDate); %></h2>
+    
+    Room URL:<a href="<%= roomURL %>"><%= roomURL %></a>
+</div>
+</body>
+</html>
