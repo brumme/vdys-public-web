@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const util = require('./lib/util');
 const fileutil = require('./lib/fileutil');
-const config = require('./config.json');
+const apiKeys = require('./secrets/apiKeys.json');
 
 const port = 3000;
 const app = express();
@@ -41,7 +41,7 @@ app.post("/make", function (req, res) {
 app.get('/api/makeRoom/:roomName', function(req, res) {
   if (req.headers.apiKey == null)
     res.send("ERR_AUTH");
-  if (config.valid_api_keys.indexOf(req.headers.apiKey) == -1)
+  if (apiKeys.valid_api_keys.indexOf(req.headers.apiKey) == -1)
     res.send("ERR_AUTH");
   let roomData = util.makeNewRoom(req.params.roomName);
   let roomURL = req.protocol + "://" + req.headers.host + "/r/" + roomData.roomId;
